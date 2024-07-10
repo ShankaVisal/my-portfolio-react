@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import '../App.css';
+import './Hero.css'
 import Bg from '../assets/banner111.jpg';
 
 function Hero() {
@@ -10,14 +11,9 @@ function Hero() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) => {
-        const nextIndex = prevIndex + 1;
-        if (nextIndex < names.length) {
-          setCurrentName(names[nextIndex]);
-          return nextIndex;
-        } else {
-          clearInterval(intervalId);
-          return prevIndex;
-        }
+        const nextIndex = (prevIndex + 1) % names.length;
+        setCurrentName(names[nextIndex]);
+        return nextIndex;
       });
     }, 1000); // 10000 milliseconds = 10 seconds
 
@@ -43,7 +39,7 @@ function Hero() {
           </div>
           <br />
           <div className="text-3">
-            I'm a {currentName}
+            I'm a <span className="ani-3">{currentName}</span>
           </div>
           <a
             href="https://drive.google.com/file/d/1Dt7_dzsXeJElZ8oyIT_jR5-0xn--LE1j/view?usp=sharing"
