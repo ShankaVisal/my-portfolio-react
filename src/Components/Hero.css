@@ -121,3 +121,13 @@
   .ani-3 {
     animation: fadeInOut 1s infinite;
   }
+
+  .animated-section {
+    margin-bottom: 50px;
+  }
+  
+  .animated-images {
+    padding: 100px 0;
+    background-size: cover;
+    background-position: center;
+  }
